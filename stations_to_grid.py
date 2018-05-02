@@ -6,17 +6,19 @@ import math
 grid_scale_x = 316
 grid_scale_y = 400
 
-with open("./stations.csv") as source_csv:
-    rows = csv.reader(source_csv, delimiter=",")
+with open("./stations.csv") as source_csv, \
+        open("./points.csv", "w") as target_csv:
+    reader = csv.reader(source_csv, delimiter=",")
+    writer = csv.writer(target_csv, delimiter=",")
 
     # skip header row
-    next(rows)
+    next(reader)
 
     originals = []
     original_xs = []
     original_ys = []
 
-    for r in rows:
+    for r in reader:
         id = r[0]
         original_x = abs(float(r[9]))
         original_y = abs(float(r[10]))
@@ -60,5 +62,6 @@ with open("./stations.csv") as source_csv:
         point_x = int(d[1] - dimensioned_x_min)
         point_y = int(d[2] - dimensioned_y_min)
 
-        print((id, point_x, point_y))
-        points.append((id, point_x, point_y))
+        writer.writerow([id, point_x, point_y])
+
+    
