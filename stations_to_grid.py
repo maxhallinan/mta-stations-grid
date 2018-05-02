@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 import csv
 import math
+import sys 
 
-# for example
-grid_scale_x = 316
-grid_scale_y = 400
+grid_scale_x = int(sys.argv[1]) if len(sys.argv) >= 2 else 316
+grid_scale_y = int(sys.argv[2]) if len(sys.argv) >= 3 else 400
 
 with open("./stations.csv") as source_csv, \
         open("./points.csv", "w") as target_csv:
