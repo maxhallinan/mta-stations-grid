@@ -55,7 +55,7 @@ with open("./stations.csv") as source_csv, \
     dimensioned_x_min = min(dimensioned_xs)
     dimensioned_y_min = min(dimensioned_ys)
 
-    points = []
+    writer.writerow(["id", "x", "y"])
 
     for d in dimensioned:
         id = d[0]
