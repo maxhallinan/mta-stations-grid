@@ -23,9 +23,9 @@ with open("./stations.csv") as source_csv, \
         original_x = abs(float(r[9]))
         original_y = abs(float(r[10]))
 
+        originals.append((id, original_x, original_y))
         original_xs.append(original_x)
         original_ys.append(original_y)
-        originals.append((id, original_x, original_y))
 
     min_x = min(original_xs)
     max_x = max(original_xs)
